@@ -1,0 +1,150 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://spectrum_analyzer/spectrum_visualizer.tscn" type="PackedScene" id=1]
+[ext_resource path="res://audio_station.gd" type="Script" id=2]
+[ext_resource path="res://volume.png" type="Texture" id=72]
+
+[sub_resource type="InputEventKey" id=6]
+control = true
+command = true
+scancode = 80
+
+[sub_resource type="ShortCut" id=7]
+shortcut = SubResource( 6 )
+
+[sub_resource type="InputEventKey" id=8]
+control = true
+command = true
+scancode = 83
+
+[sub_resource type="ShortCut" id=9]
+shortcut = SubResource( 8 )
+
+[sub_resource type="InputEventKey" id=10]
+control = true
+command = true
+scancode = 70
+
+[sub_resource type="ShortCut" id=11]
+shortcut = SubResource( 10 )
+
+[sub_resource type="InputEventKey" id=12]
+control = true
+command = true
+scancode = 77
+
+[sub_resource type="ShortCut" id=13]
+shortcut = SubResource( 12 )
+
+[node name="AudioStation" type="VBoxContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+
+[node name="SpectrumVisualizer" parent="." instance=ExtResource( 1 )]
+visible = false
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 400.0
+margin_bottom = 178.0
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+margin_right = 400.0
+margin_bottom = 300.0
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 393.0
+margin_bottom = 293.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+margin_right = 386.0
+margin_bottom = 20.0
+
+[node name="Pause" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+margin_right = 39.0
+margin_bottom = 20.0
+hint_tooltip = "Pause"
+toggle_mode = true
+shortcut = SubResource( 7 )
+text = "PAU"
+
+[node name="Skip" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+margin_left = 43.0
+margin_right = 75.0
+margin_bottom = 20.0
+hint_tooltip = "skip"
+shortcut = SubResource( 9 )
+text = "SKI"
+
+[node name="FastForward" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+margin_left = 79.0
+margin_right = 114.0
+margin_bottom = 20.0
+hint_tooltip = "fast forward"
+toggle_mode = true
+shortcut = SubResource( 11 )
+text = "FAS"
+
+[node name="VSeparator" type="VSeparator" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+margin_left = 118.0
+margin_right = 122.0
+margin_bottom = 20.0
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+margin_left = 126.0
+margin_right = 142.0
+margin_bottom = 20.0
+hint_tooltip = "volume"
+texture = ExtResource( 72 )
+
+[node name="Volume" type="HSlider" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+margin_left = 146.0
+margin_right = 246.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 100, 0 )
+hint_tooltip = "0 DB volume"
+min_value = 0.01
+max_value = 1.0
+step = 0.02
+value = 1.0
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="VSeparator2" type="VSeparator" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+margin_left = 250.0
+margin_right = 254.0
+margin_bottom = 20.0
+
+[node name="MenuButton" type="MenuButton" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+margin_left = 258.0
+margin_right = 315.0
+margin_bottom = 20.0
+shortcut = SubResource( 13 )
+text = "More..."
+
+[node name="ItemList" type="ItemList" parent="PanelContainer/VBoxContainer"]
+margin_top = 24.0
+margin_right = 386.0
+margin_bottom = 286.0
+rect_min_size = Vector2( 0, 128 )
+size_flags_vertical = 3
+select_mode = 1
+max_columns = 0
+same_column_width = true
+fixed_column_width = 256
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+bus = "Music"
+
+[node name="ResourcePreloader" type="ResourcePreloader" parent="."]
+
+[connection signal="toggled" from="PanelContainer/VBoxContainer/HBoxContainer/Pause" to="." method="_on_Pause_toggled"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/Skip" to="." method="_on_Skip_pressed"]
+[connection signal="toggled" from="PanelContainer/VBoxContainer/HBoxContainer/FastForward" to="." method="_on_FastForward_toggled"]
+[connection signal="value_changed" from="PanelContainer/VBoxContainer/HBoxContainer/Volume" to="." method="_on_Volume_value_changed"]
+[connection signal="item_activated" from="PanelContainer/VBoxContainer/ItemList" to="." method="_on_ItemList_item_activated"]
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_AudioStreamPlayer_finished"]
