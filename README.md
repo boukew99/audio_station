@@ -8,3 +8,5 @@ Features
 * playlist, quickly create playlist by Ctrl/Shift selecting multiple files
 * Pause, Skip, Fast Forward, Volume and More controls with shortcuts.
 * Spectrum analyzer
+
+![screenshot](https://raw.githubusercontent.com/boukew99/audio_station/main/screenshot/Screenshot%202022-03-09%20160057.png)
