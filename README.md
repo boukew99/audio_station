@@ -1,10 +1,10 @@
-func get_audio_length()
-	var length = player.stream.get_length()
+Setup
+* add audio files to the project.
+* optionally setup loops in Import
+* drag audio files in ResourcePreload Node in audio_station scene
 
-	var minutes = length / 60
-	var seconds = int(length) % 60
-
-	list.set_item_tooltip(index, "%2d:%02d" % [minutes, seconds])
-
-
-player.stream.seek(time)
+Features
+* autoplay, activate a file and it will continue playing the next file
+* playlist, quickly create playlist by Ctrl/Shift selecting multiple files
+* Pause, Skip, Fast Forward, Volume and More controls with shortcuts.
+* Spectrum analyzer

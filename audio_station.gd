@@ -46,7 +46,14 @@ func _on_menu_item_checked(index):
 		
 func _on_ItemList_item_activated(index):
 	current_index = index
-	player.stream = $ResourcePreloader.get_resource(streams[index])
+	player.stream = $ResourcePreloader.get_resource(streams[index])	
+	
+	# optional
+#	var length = player.stream.get_length()
+#	var minutes = length / 60
+#	var seconds = int(length) % 60
+#	list.set_item_tooltip(index, "%2d:%02d" % [minutes, seconds])
+	
 	player.play()
 		
 

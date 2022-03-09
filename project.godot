@@ -17,7 +17,7 @@ config/icon="res://audio_station.png"
 
 [display]
 
-window/size/width=400
+window/size/width=329
 window/size/height=300
 
 [importer_defaults]
