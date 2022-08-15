@@ -36,11 +36,11 @@ script = ExtResource( 2 )
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 margin_left = 7.0
 margin_top = 7.0
-margin_right = 519.0
+margin_right = 420.0
 margin_bottom = 293.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
-margin_right = 512.0
+margin_right = 413.0
 margin_bottom = 24.0
 
 [node name="Load" type="Button" parent="VBoxContainer/HBoxContainer"]
@@ -74,21 +74,29 @@ toggle_mode = true
 shortcut = SubResource( 11 )
 text = "FAS"
 
-[node name="VSeparator" type="VSeparator" parent="VBoxContainer/HBoxContainer"]
+[node name="SpectrumAnalyzer" type="Button" parent="VBoxContainer/HBoxContainer"]
 margin_left = 161.0
-margin_right = 165.0
+margin_right = 195.0
+margin_bottom = 24.0
+toggle_mode = true
+pressed = true
+text = "SPE"
+
+[node name="VSeparator" type="VSeparator" parent="VBoxContainer/HBoxContainer"]
+margin_left = 199.0
+margin_right = 203.0
 margin_bottom = 24.0
 
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer"]
-margin_left = 169.0
-margin_right = 185.0
+margin_left = 207.0
+margin_right = 223.0
 margin_bottom = 24.0
 hint_tooltip = "volume"
 texture = ExtResource( 72 )
 
 [node name="Volume" type="HSlider" parent="VBoxContainer/HBoxContainer"]
-margin_left = 189.0
-margin_right = 289.0
+margin_left = 227.0
+margin_right = 327.0
 margin_bottom = 16.0
 rect_min_size = Vector2( 100, 0 )
 hint_tooltip = "0 DB"
@@ -100,34 +108,24 @@ __meta__ = {
 "_editor_description_": ""
 }
 
-[node name="Loop" type="CheckBox" parent="VBoxContainer/HBoxContainer"]
-margin_left = 293.0
-margin_right = 349.0
-margin_bottom = 24.0
-text = "loop"
-
 [node name="VSeparator2" type="VSeparator" parent="VBoxContainer/HBoxContainer"]
-margin_left = 353.0
-margin_right = 357.0
+margin_left = 331.0
+margin_right = 335.0
 margin_bottom = 24.0
-
-[node name="SpectrumAnalyzer" type="Button" parent="VBoxContainer/HBoxContainer"]
-margin_left = 361.0
-margin_right = 434.0
-margin_bottom = 24.0
-toggle_mode = true
-text = "spectrum"
 
 [node name="AdvanceShuffle" type="SpinBox" parent="VBoxContainer/HBoxContainer"]
-margin_left = 438.0
-margin_right = 512.0
+margin_left = 339.0
+margin_right = 413.0
 margin_bottom = 24.0
+max_value = 1.0
+value = 1.0
+prefix = "adv."
 
 [node name="ItemList" type="ItemList" parent="VBoxContainer"]
 margin_top = 28.0
-margin_right = 512.0
-margin_bottom = 286.0
-rect_min_size = Vector2( 0, 128 )
+margin_right = 413.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 0, 36 )
 size_flags_vertical = 3
 select_mode = 1
 max_columns = 0
@@ -135,17 +133,15 @@ same_column_width = true
 fixed_column_width = 256
 
 [node name="SpectrumVisualizer" parent="VBoxContainer" instance=ExtResource( 1 )]
-visible = false
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 160.0
-margin_right = 512.0
-margin_bottom = 334.0
+margin_top = 84.0
+margin_right = 413.0
+margin_bottom = 258.0
 
 [node name="Filters" type="HBoxContainer" parent="VBoxContainer"]
-visible = false
 margin_top = 262.0
-margin_right = 512.0
+margin_right = 413.0
 margin_bottom = 286.0
 
 [node name="BandPass" type="CheckBox" parent="VBoxContainer/Filters"]
@@ -182,9 +178,9 @@ bus = "Music"
 [connection signal="toggled" from="VBoxContainer/HBoxContainer/Pause" to="." method="_on_Pause_toggled"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Skip" to="." method="_on_Skip_pressed"]
 [connection signal="toggled" from="VBoxContainer/HBoxContainer/FastForward" to="." method="_on_FastForward_toggled"]
-[connection signal="value_changed" from="VBoxContainer/HBoxContainer/Volume" to="." method="_on_Volume_value_changed"]
-[connection signal="toggled" from="VBoxContainer/HBoxContainer/Loop" to="." method="_on_Loop_toggled"]
 [connection signal="toggled" from="VBoxContainer/HBoxContainer/SpectrumAnalyzer" to="." method="_on_SpectrumAnalyzer_toggled"]
+[connection signal="value_changed" from="VBoxContainer/HBoxContainer/Volume" to="." method="_on_Volume_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/HBoxContainer/AdvanceShuffle" to="." method="_on_AdvanceShuffle_value_changed"]
 [connection signal="item_activated" from="VBoxContainer/ItemList" to="." method="_on_ItemList_item_activated"]
 [connection signal="toggled" from="VBoxContainer/Filters/BandPass" to="." method="_on_BandPass_toggled"]
 [connection signal="toggled" from="VBoxContainer/Filters/HighPass" to="." method="_on_HighPass_toggled"]
