@@ -3,4 +3,4 @@
 
 # Ignore some files when exporting to a ZIP.
 /.gitattributes     export-ignore
-/screenshot/        export-ignore
+/Screenshot 2022-03-09 160057.png       export-ignore

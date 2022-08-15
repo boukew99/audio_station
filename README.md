@@ -14,4 +14,4 @@ Features
 
 Note: it use more memory than a native audio player, since all audio is preloaded.
 
-![screenshot](https://raw.githubusercontent.com/boukew99/audio_station/main/screenshot/Screenshot%202022-03-09%20160057.png)
+![screenshot](Screenshot%202022-03-09%20160057.png)
