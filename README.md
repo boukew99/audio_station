@@ -1,3 +1,6 @@
+# Audio Station
+Allows for regular playback, but also opens up for more dynamic music with the AudioStream childeren resources and setting up loops in Import settings. 
+
 Setup
 * add audio files to the project.
 * optionally setup loops in Import

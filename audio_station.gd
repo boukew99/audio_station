@@ -1,61 +1,43 @@
-extends Control
+extends PanelContainer
 
 onready var player = $AudioStreamPlayer
-onready var list = $PanelContainer/VBoxContainer/ItemList
-onready var volume = $PanelContainer/VBoxContainer/HBoxContainer/Volume
-onready var menu = $PanelContainer/VBoxContainer/HBoxContainer/MenuButton.get_popup()
+onready var list = $VBoxContainer/ItemList
+onready var volume = $VBoxContainer/HBoxContainer/Volume
 
-onready var streams = $ResourcePreloader.get_resource_list() as Array
+onready var streams = []
 onready var bus = AudioServer.get_bus_index($AudioStreamPlayer.bus)
 
 var current_index = 0
+var loop = false
 
 func _ready():
-	OS.min_window_size = OS.window_size
-	
-	streams.shuffle()
-	set_stream_items()
-	
-	menu.add_check_item("Band Pass")
-	menu.add_check_item("High Pass Filter")
-	menu.add_check_item("Low Pass Filter")
-	menu.add_item("Toggle spectrum visualizer")
-	menu.add_item("Sort")
-	menu.add_item("Shuffle")
-	menu.connect("index_pressed", self, "_on_menu_item_checked")
+	OS.min_window_size = get_minimum_size()
+	for resource_name in $ResourcePreloader.get_resource_list():
+		var resource = $ResourcePreloader.get_resource(resource_name)
+		streams.append(resource)
+		list.add_item(resource.resource_path.get_file())
+	get_tree().connect("files_dropped", self, "_on_files_dropped")
 
-func set_stream_items():
-	list.clear()
-	for stream in streams:
-		list.add_item(stream)
-		
-func _on_menu_item_checked(index):
-	match index:
-		0, 1, 2:
-			menu.toggle_item_checked(index)
-			AudioServer.set_bus_effect_enabled(bus, index + 1, menu.is_item_checked(index))
-		3:
-			$SpectrumVisualizer.visible = not $SpectrumVisualizer.visible
-		4: 
-			streams.sort()
-			set_stream_items()
-		5: 
-			streams.shuffle()
-			set_stream_items()
+func load_ogg(path):
+	var file = File.new()
+	file.open(path, File.READ)
+	var buffer = file.get_buffer(file.get_len())
+	var stream = AudioStreamOGGVorbis.new()
+	stream.data = buffer
+	
+	return stream
 
-		
+func _on_files_dropped(paths, screen):
+	for path in paths:
+		if path.get_extension() == "ogg":
+			_on_FileDialog_files_selected([path])
+			
 func _on_ItemList_item_activated(index):
 	current_index = index
-	player.stream = $ResourcePreloader.get_resource(streams[index])	
 	
-	# optional
-#	var length = player.stream.get_length()
-#	var minutes = length / 60
-#	var seconds = int(length) % 60
-#	list.set_item_tooltip(index, "%2d:%02d" % [minutes, seconds])
-	
+	player.stream = streams[index]
 	player.play()
-		
+	
 
 func _on_Pause_toggled(button_pressed): 
 	player.stream_paused = button_pressed
@@ -85,3 +67,39 @@ func _on_AudioStreamPlayer_finished():
 	
 	# could be cleaner with list.focus(current_index)
 
+func _on_Load_pressed():
+	$FileDialog.popup_centered()
+
+
+func _on_FileDialog_files_selected(paths):
+	for path in paths:
+		streams.append(load_ogg(path) )
+		list.add_item(path.get_basename().get_file())
+		
+		
+
+func _on_Loop_toggled(button_pressed):
+	loop = button_pressed
+
+
+func _on_LowPass_toggled(button_pressed):
+	AudioServer.set_bus_effect_enabled(bus, 1, button_pressed)
+
+
+func _on_HighPass_toggled(button_pressed):
+	AudioServer.set_bus_effect_enabled(bus, 2, button_pressed)
+
+func _on_BandPass_toggled(button_pressed):
+	AudioServer.set_bus_effect_enabled(bus, 3, button_pressed)
+
+
+func _on_SpectrumAnalyzer_toggled(button_pressed):
+	list.visible = not button_pressed
+	$VBoxContainer/SpectrumVisualizer.visible = button_pressed
+	$VBoxContainer/Filters.visible = button_pressed
+
+
+#		var length = player.stream.get_length()
+#		var minutes = length / 60
+#		var seconds = int(length) % 60
+#		list.set_item_tooltip(index, "%2d:%02d" % [minutes, seconds])
