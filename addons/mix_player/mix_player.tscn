@@ -1,7 +1,17 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://addons/audio_station/audio-station-files/volume.png" type="Texture" id=1]
+[ext_resource path="res://addons/audio_station/volume.png" type="Texture" id=1]
+[ext_resource path="res://addons/audio_station/volume100.png" type="Texture" id=2]
+[ext_resource path="res://addons/audio_station/volume100_highlight.png" type="Texture" id=3]
 [ext_resource path="res://addons/mix_player/mix_player.gd" type="Script" id=11]
+
+[sub_resource type="StyleBoxTexture" id=2]
+texture = ExtResource( 3 )
+region_rect = Rect2( 0, 0, 100, 16 )
+
+[sub_resource type="StyleBoxTexture" id=1]
+texture = ExtResource( 2 )
+region_rect = Rect2( 0, 0, 100, 16 )
 
 [node name="MixPlayer" type="Panel"]
 anchor_right = 1.0
@@ -55,6 +65,8 @@ margin_left = 257.0
 margin_right = 321.0
 margin_bottom = 16.0
 rect_min_size = Vector2( 64, 0 )
+custom_styles/grabber_area_highlight = SubResource( 2 )
+custom_styles/grabber_area = SubResource( 1 )
 max_value = 1.0
 step = 0.0
 value = 1.0

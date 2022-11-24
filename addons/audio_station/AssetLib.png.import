@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/TransitionEnd.png-32cfaaa03bec46566b0bf659a5152e1e.stex"
+path="res://.import/AssetLib.png-43100e0b8aa35c3f4e82fceb714c3b54.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/audio_station/audio-station-files/TransitionEnd.png"
-dest_files=[ "res://.import/TransitionEnd.png-32cfaaa03bec46566b0bf659a5152e1e.stex" ]
+source_file="res://addons/audio_station/AssetLib.png"
+dest_files=[ "res://.import/AssetLib.png-43100e0b8aa35c3f4e82fceb714c3b54.stex" ]
 
 [params]
 

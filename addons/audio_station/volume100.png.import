@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/forward.png-5cd32d1c6b6758234d20c951d48b4cff.stex"
+path="res://.import/volume100.png-31643554b9f76ffb4735e584a8f51466.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/audio_station/audio-station-files/forward.png"
-dest_files=[ "res://.import/forward.png-5cd32d1c6b6758234d20c951d48b4cff.stex" ]
+source_file="res://addons/audio_station/volume100.png"
+dest_files=[ "res://.import/volume100.png-31643554b9f76ffb4735e584a8f51466.stex" ]
 
 [params]
 
