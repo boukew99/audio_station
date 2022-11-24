@@ -1,0 +1,83 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://addons/audio_station/audio-station-files/volume.png" type="Texture" id=1]
+[ext_resource path="res://addons/mix_player/mix_player.gd" type="Script" id=11]
+
+[node name="MixPlayer" type="Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 11 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 4.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+margin_right = 321.0
+margin_bottom = 24.0
+
+[node name="MixName" type="Label" parent="VBoxContainer/HBoxContainer"]
+margin_top = 5.0
+margin_right = 209.0
+margin_bottom = 19.0
+size_flags_horizontal = 3
+text = "MIX Name"
+
+[node name="Skip" type="Button" parent="VBoxContainer/HBoxContainer"]
+visible = false
+margin_left = 798.0
+margin_right = 836.0
+margin_bottom = 24.0
+text = "Skip"
+
+[node name="Step" type="HSlider" parent="VBoxContainer/HBoxContainer"]
+visible = false
+margin_left = 840.0
+margin_right = 904.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 64, 0 )
+max_value = 4.0
+
+[node name="Mute" type="CheckBox" parent="VBoxContainer/HBoxContainer"]
+margin_left = 213.0
+margin_right = 253.0
+margin_bottom = 24.0
+icon = ExtResource( 1 )
+
+[node name="Volume" type="HSlider" parent="VBoxContainer/HBoxContainer"]
+margin_left = 257.0
+margin_right = 321.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 64, 0 )
+max_value = 1.0
+step = 0.0
+value = 1.0
+
+[node name="VSlider" type="HSlider" parent="VBoxContainer"]
+unique_name_in_owner = true
+margin_top = 28.0
+margin_right = 321.0
+margin_bottom = 44.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
+margin_top = 48.0
+margin_right = 321.0
+margin_bottom = 292.0
+size_flags_vertical = 3
+
+[node name="Names" type="VBoxContainer" parent="VBoxContainer/ScrollContainer"]
+unique_name_in_owner = true
+
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_AudioStreamPlayer_finished"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Skip" to="." method="_on_Finish_pressed"]
+[connection signal="value_changed" from="VBoxContainer/HBoxContainer/Step" to="." method="_on_Step_value_changed"]
+[connection signal="toggled" from="VBoxContainer/HBoxContainer/Mute" to="." method="_on_Mute_toggled"]
+[connection signal="value_changed" from="VBoxContainer/HBoxContainer/Volume" to="." method="_on_Volume_value_changed"]
+[connection signal="changed" from="VBoxContainer/VSlider" to="." method="_on_VSlider_changed"]
+[connection signal="value_changed" from="VBoxContainer/VSlider" to="." method="_on_VSlider_value_changed"]
