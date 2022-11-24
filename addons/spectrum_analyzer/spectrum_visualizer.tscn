@@ -1,0 +1,137 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://addons/spectrum_analyzer/vu.tscn" type="PackedScene" id=1]
+[ext_resource path="res://addons/spectrum_analyzer/spectrum_visualizer.gd" type="Script" id=2]
+
+[node name="SpectrumVisualizer" type="PanelContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -43.0
+margin_bottom = -126.0
+size_flags_horizontal = 7
+script = ExtResource( 2 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 974.0
+margin_bottom = 467.0
+
+[node name="VUs" type="HBoxContainer" parent="VBoxContainer"]
+margin_right = 967.0
+margin_bottom = 460.0
+size_flags_vertical = 3
+custom_constants/separation = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VU" parent="VBoxContainer/VUs" instance=ExtResource( 1 )]
+margin_right = 56.0
+margin_bottom = 460.0
+value = 1.0
+
+[node name="VU2" parent="VBoxContainer/VUs" instance=ExtResource( 1 )]
+margin_left = 56.0
+margin_right = 113.0
+margin_bottom = 460.0
+
+[node name="VU3" parent="VBoxContainer/VUs" instance=ExtResource( 1 )]
+margin_left = 113.0
+margin_right = 170.0
+margin_bottom = 460.0
+
+[node name="VU4" parent="VBoxContainer/VUs" instance=ExtResource( 1 )]
+margin_left = 170.0
+margin_right = 227.0
+margin_bottom = 460.0
+
+[node name="VU5" parent="VBoxContainer/VUs" instance=ExtResource( 1 )]
+margin_left = 227.0
+margin_right = 284.0
+margin_bottom = 460.0
+
+[node name="VU6" parent="VBoxContainer/VUs" instance=ExtResource( 1 )]
+margin_left = 284.0
+margin_right = 341.0
+margin_bottom = 460.0
+
+[node name="VU7" parent="VBoxContainer/VUs" instance=ExtResource( 1 )]
+margin_left = 341.0
+margin_right = 398.0
+margin_bottom = 460.0
+
+[node name="VU8" parent="VBoxContainer/VUs" instance=ExtResource( 1 )]
+margin_left = 398.0
+margin_right = 455.0
+margin_bottom = 460.0
+
+[node name="VU9" parent="VBoxContainer/VUs" instance=ExtResource( 1 )]
+margin_left = 455.0
+margin_right = 511.0
+margin_bottom = 460.0
+
+[node name="VU10" parent="VBoxContainer/VUs" instance=ExtResource( 1 )]
+margin_left = 511.0
+margin_right = 568.0
+margin_bottom = 460.0
+
+[node name="VU11" parent="VBoxContainer/VUs" instance=ExtResource( 1 )]
+margin_left = 568.0
+margin_right = 625.0
+margin_bottom = 460.0
+
+[node name="VU12" parent="VBoxContainer/VUs" instance=ExtResource( 1 )]
+margin_left = 625.0
+margin_right = 682.0
+margin_bottom = 460.0
+
+[node name="VU13" parent="VBoxContainer/VUs" instance=ExtResource( 1 )]
+margin_left = 682.0
+margin_right = 739.0
+margin_bottom = 460.0
+
+[node name="VU14" parent="VBoxContainer/VUs" instance=ExtResource( 1 )]
+margin_left = 739.0
+margin_right = 796.0
+margin_bottom = 460.0
+
+[node name="VU15" parent="VBoxContainer/VUs" instance=ExtResource( 1 )]
+margin_left = 796.0
+margin_right = 853.0
+margin_bottom = 460.0
+
+[node name="VU16" parent="VBoxContainer/VUs" instance=ExtResource( 1 )]
+margin_left = 853.0
+margin_right = 910.0
+margin_bottom = 460.0
+
+[node name="VU17" parent="VBoxContainer/VUs" instance=ExtResource( 1 )]
+margin_left = 910.0
+margin_right = 967.0
+margin_bottom = 460.0
+
+[node name="Filters" type="HBoxContainer" parent="VBoxContainer"]
+visible = false
+margin_top = 562.0
+margin_right = 1010.0
+margin_bottom = 586.0
+
+[node name="BandPass" type="CheckBox" parent="VBoxContainer/Filters"]
+margin_right = 93.0
+margin_bottom = 24.0
+text = "Band Pass"
+
+[node name="HighPass" type="CheckBox" parent="VBoxContainer/Filters"]
+margin_left = 97.0
+margin_right = 224.0
+margin_bottom = 24.0
+text = "High Pass Filter"
+
+[node name="LowPass" type="CheckBox" parent="VBoxContainer/Filters"]
+margin_left = 228.0
+margin_right = 351.0
+margin_bottom = 24.0
+text = "Low Pass Filter"
+
+[connection signal="visibility_changed" from="." to="." method="_on_SpectrumVisualizer_visibility_changed"]

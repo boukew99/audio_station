@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/4-19 Projection Room Underground.mp3-169c5b4b0144a1ada8ebef2f0a451864.mp3str"
+
+[deps]
+
+source_file="res://addons/audio_station/mix_player/mario-odessy/4-19 Projection Room Underground.mp3"
+dest_files=[ "res://.import/4-19 Projection Room Underground.mp3-169c5b4b0144a1ada8ebef2f0a451864.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/3-14 Peach's Castle.mp3-ac78301d41389f7b44d5efdb4495d91e.mp3str"
+
+[deps]
+
+source_file="res://addons/audio_station/mix_player/mario-odessy/3-14 Peach's Castle.mp3"
+dest_files=[ "res://.import/3-14 Peach's Castle.mp3-ac78301d41389f7b44d5efdb4495d91e.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

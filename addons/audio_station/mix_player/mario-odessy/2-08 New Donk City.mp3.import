@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/2-08 New Donk City.mp3-8adcc1d7e15a55727ec12343cff31f0a.mp3str"
+
+[deps]
+
+source_file="res://addons/audio_station/mix_player/mario-odessy/2-08 New Donk City.mp3"
+dest_files=[ "res://.import/2-08 New Donk City.mp3-8adcc1d7e15a55727ec12343cff31f0a.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/4-10 Bubblaine 8bit Version.mp3-35a8e14abed3ffb5cd5ee54770678e9b.mp3str"
+
+[deps]
+
+source_file="res://addons/audio_station/mix_player/mario-odessy/4-10 Bubblaine 8bit Version.mp3"
+dest_files=[ "res://.import/4-10 Bubblaine 8bit Version.mp3-35a8e14abed3ffb5cd5ee54770678e9b.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

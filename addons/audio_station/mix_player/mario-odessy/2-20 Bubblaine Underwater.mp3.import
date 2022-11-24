@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/2-20 Bubblaine Underwater.mp3-c44bbc7e6e7be8cbbad10b13d266b58e.mp3str"
+
+[deps]
+
+source_file="res://addons/audio_station/mix_player/mario-odessy/2-20 Bubblaine Underwater.mp3"
+dest_files=[ "res://.import/2-20 Bubblaine Underwater.mp3-c44bbc7e6e7be8cbbad10b13d266b58e.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

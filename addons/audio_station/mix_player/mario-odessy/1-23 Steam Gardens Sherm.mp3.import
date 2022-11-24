@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/1-23 Steam Gardens Sherm.mp3-409128a79c46c86b17b7aef056e8ca65.mp3str"
+
+[deps]
+
+source_file="res://addons/audio_station/mix_player/mario-odessy/1-23 Steam Gardens Sherm.mp3"
+dest_files=[ "res://.import/1-23 Steam Gardens Sherm.mp3-409128a79c46c86b17b7aef056e8ca65.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

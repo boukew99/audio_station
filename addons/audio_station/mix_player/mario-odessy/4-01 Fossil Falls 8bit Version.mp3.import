@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/4-01 Fossil Falls 8bit Version.mp3-ede365725e04dce03e1da73a26976ce4.mp3str"
+
+[deps]
+
+source_file="res://addons/audio_station/mix_player/mario-odessy/4-01 Fossil Falls 8bit Version.mp3"
+dest_files=[ "res://.import/4-01 Fossil Falls 8bit Version.mp3-ede365725e04dce03e1da73a26976ce4.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

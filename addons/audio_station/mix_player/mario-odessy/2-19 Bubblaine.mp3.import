@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/2-19 Bubblaine.mp3-d737fc5d68b31ab93c2955adb2e7b58f.mp3str"
+
+[deps]
+
+source_file="res://addons/audio_station/mix_player/mario-odessy/2-19 Bubblaine.mp3"
+dest_files=[ "res://.import/2-19 Bubblaine.mp3-d737fc5d68b31ab93c2955adb2e7b58f.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
